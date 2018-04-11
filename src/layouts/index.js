@@ -28,6 +28,7 @@ class TemplateWrapper extends Component {
   };
 
   navigate = ({ keyCode }) => {
+    console.log('kygkygjkh')
     const now = parseInt(location.pathname.substr(1));
 
     const slides = this.props.data.allMarkdownRemark.edges.filter(
@@ -40,11 +41,11 @@ class TemplateWrapper extends Component {
       }
     );
 
+    console.log(keyCode, now, slides.length)
     if (now) {
       if (keyCode === this.PREV && now === 1) {
         return false;
-      } else if (keyCode === this.NEXT && now === slides.length) {
-        return false;
+        
       } else if (keyCode === this.NEXT) {
         navigateTo(`/${now + 1}`);
       } else if (keyCode === this.PREV) {
@@ -54,7 +55,7 @@ class TemplateWrapper extends Component {
   };
 
   componentDidMount() {
-    document.addEventListener('keydown', this.navigate);
+    document.addEventListener('keydown', e => this.navigate(e));
   }
 
   componentWillUnmount() {

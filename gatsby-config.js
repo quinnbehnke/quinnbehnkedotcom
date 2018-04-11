@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    name: `Fabian Schultz`,
-    title: `Gatsby Deck`,
-    date: `November 23, 2017`
+    name: `Quinn Behnke`,
+    title: ``,
+    date: ``
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,6 +19,13 @@ module.exports = {
         name: `slides`,
         path: `${__dirname}/src/pages/`
       }
+    },    
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
+      },
     },
     {
       resolve: `gatsby-plugin-postcss-sass`,
